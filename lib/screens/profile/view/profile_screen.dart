@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/utils/firebase_helper/firebase_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,6 +44,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               blurStyle: BlurStyle.inner)
                         ],
                       ),
+                      alignment: Alignment.topRight,
+                      child: IconButton(onPressed: () {
+                        FireBaseHelper.fireBaseHelper.logut();
+                        Get.offAndToNamed('/');
+                      }, icon: Icon(Icons.logout_sharp,color: Colors.white,)),
                     ),
                     Align(
                       alignment: Alignment.center,
@@ -69,7 +75,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               flex: 3,
               child: Container(
                 child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    Text("Your Name",style: TextStyle(fontSize: 30),),
+                    SizedBox(height: 30,),
                     ListTile(
                       onTap: () => Get.toNamed('/cart'),
                       shape: RoundedRectangleBorder(
